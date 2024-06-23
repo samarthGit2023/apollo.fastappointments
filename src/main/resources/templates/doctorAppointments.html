@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Doctor Appointments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue color */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            margin-top: 50px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Doctor Appointments</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Appointment Time</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="apt : ${appointments}">
+                <td th:text="${apt.patient.name}">Patient Name</td>
+                <td th:text="${apt.appointment.appointmentTime}">Appointment Time</td>
+                <td th:text="${apt.appointment.status}">Status</td>
+                <td>
+                    <form th:action="@{/doctor/appointment/cancel}" method="post">
+                        <input type="hidden" name="appointmentId" th:value="${apt.appointment.id}">
+                        <input type="hidden" name="username" th:value="${doctor.username}">
+                        <input type="hidden" name="password" th:value="${doctor.password}">
+                        <button type="submit">Cancel</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+                    <a th:href="@{/doctor/fffghhh(username=${doctor.username}, password=${doctor.password})}" class="btn">Back to Profile</a>
+    
+   
+</body>
+</html>
+
+
+   
+   
+
