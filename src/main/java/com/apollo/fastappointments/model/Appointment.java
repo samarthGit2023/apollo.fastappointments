@@ -27,7 +27,7 @@ public class Appointment {
     private int appointmentTime;
 
     @Column(name="status")
-    private String status; // e.g., "pending" or "done"
+    private String status; 
 
 	public Long getId() {
 		return id;
