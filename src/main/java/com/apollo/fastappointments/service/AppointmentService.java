@@ -72,7 +72,7 @@ public class AppointmentService {
             appointmentRepository.save(appointment);
         } else {
             // Handle the case where either the patient or the doctor does not exist
-            // For example, throw an exception or log an error message
+            // throw an exception or log an error message
         }
     }
 
